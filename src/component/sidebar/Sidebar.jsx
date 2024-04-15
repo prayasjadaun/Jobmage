@@ -1,25 +1,33 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './sidebar.css'
-function Sidebar() {
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './sidebar.css';
+
+function Sidebar({ setSelectedPage }) {
+  const [selectedLink, setSelectedLink] = useState(null);
+
+  const handleLinkClick = (link) => {
+    setSelectedLink(link);
+    setSelectedPage(link); // Pass selected link to parent component
+  };
+
   return (
     <div className="sidebar">
-        <div className='sidebar-container'>
+      <div className='sidebar-container'>
         <div className="sidebar-logo">
-        <Link to='/' className='Link'><span className='blue'>Job</span><span className='green'>Mage</span></Link>
+          <Link to='/' className='Link'><span className='blue'>Job</span><span className='green'>Mage</span></Link>
         </div>
         <div className="sidebar-links">
-            <div className='section-links'>Jobs</div>
-            <div className='section-links'>Resources</div>
-            <div className='section-links'>Feeds</div>
-            <div className='section-links'>Messages</div>
-            <div className='section-links'>ChatBot</div>
-            <div className='section-links'>Settings</div>
+          <div className={selectedLink === 'jobs' ? 'section-links active' : 'section-links'} onClick={() => handleLinkClick('jobs')}>Jobs</div>
+          <div className={selectedLink === 'resources' ? 'section-links active' : 'section-links'} onClick={() => handleLinkClick('resources')}>Resources</div>
+          <div className={selectedLink === 'feeds' ? 'section-links active' : 'section-links'} onClick={() => handleLinkClick('feeds')}>Feeds</div>
+          <div className={selectedLink === 'messages' ? 'section-links active' : 'section-links'} onClick={() => handleLinkClick('messages')}>Messages</div>
+          <div className={selectedLink === 'chatbot' ? 'section-links active' : 'section-links'} onClick={() => handleLinkClick('chatbot')}>ChatBot</div>
+          <div className={selectedLink === 'settings' ? 'section-links active' : 'section-links'} onClick={() => handleLinkClick('settings')}>Settings</div>
         </div>
+      </div>
+      <hr />
     </div>
-    <hr />
-    </div>
-  )
+  );
 }
 
-export default Sidebar
+export default Sidebar;
