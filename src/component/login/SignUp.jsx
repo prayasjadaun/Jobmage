@@ -19,7 +19,7 @@ function SignUp() {
         <label htmlFor="Password">Confirm Password</label>
         <input type="password" placeholder='password' />
         <button className='signup-btn'>Register</button>
-        <p>Already have an account? <a href='/login'>Login</a></p>
+        <p>Already have an account? <a ><Link to='/login'>Login</Link></a></p>
 
       </form>
     </div>
