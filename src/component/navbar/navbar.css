@@ -11,13 +11,20 @@
 .nav-logo{
     font-size: 2rem;
     font-weight: 700;
+    
+}
+
+.Link{
+    text-decoration: none;
 }
 .blue{
     color: blue;
 }
+
 .green{
     color: green;
 }
+
 
 
 .nav-link{

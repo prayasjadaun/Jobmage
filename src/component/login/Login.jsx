@@ -7,7 +7,7 @@ function Login() {
     <section className='log-container'>
     <div className='login-container'>
       <div className='login-logo'>
-        <span className='blue'>Job</span><span className='green'>Mage</span>
+      <Link to='/' className='Link'><span className='blue'>Job</span><span className='green'>Mage</span></Link>
       </div>
       <h1>Login</h1>
       <form className='login-form'>

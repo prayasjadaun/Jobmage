@@ -6,8 +6,8 @@ function Navbar() {
   return (
     <div className='navb' id='home'>
       <div className='navbar'>
-      <div className='nav-logo'>
-        <span className='blue'>Job</span><span className='green'>Mage</span>
+      <div className='nav-logo' >
+        <Link to='/' className='Link'><span className='blue'>Job</span><span className='green'>Mage</span></Link>
       </div>
       <div className='nav-link nav-menu'>
         <div className="nav-icon">Jobs</div>

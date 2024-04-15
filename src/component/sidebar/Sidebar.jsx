@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './sidebar.css'
 function Sidebar() {
   return (
     <div className="sidebar">
         <div className='sidebar-container'>
         <div className="sidebar-logo">
-            <span className='blue'>Job</span><span className='green'>Mage</span>
+        <Link to='/' className='Link'><span className='blue'>Job</span><span className='green'>Mage</span></Link>
         </div>
         <div className="sidebar-links">
             <div className='section-links'>Jobs</div>

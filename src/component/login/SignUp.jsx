@@ -7,7 +7,7 @@ function SignUp() {
     <section className='sign-container'>
     <div className='signup-container'>
       <div className='signup-logo'>
-        <span className='blue'>Job</span><span className='green'>Mage</span>
+      <Link to='/' className='Link'><span className='blue'>Job</span><span className='green'>Mage</span></Link>
       </div>
       <h1>Signup</h1>
       <form className='signup-form'>
