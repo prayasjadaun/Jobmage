@@ -1,4 +1,5 @@
 import React from 'react'
+import contact_image from '../../assets/contact.jpg'
 import './contact.css'
 function Contact() {
   return (
@@ -9,7 +10,7 @@ function Contact() {
         </div>
         <div className='contact-form-container'>
             <div className='contact-image'>
-                <img src="https://img.freepik.com/free-vector/organic-flat-man-customer-support_23-2148893295.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1713052800&semt=ais" alt="contact" />
+                <img src={contact_image} alt="contact" />
             </div>
             <form className='contact-form'>
             <h2 className='contact-query'>Ask your query</h2>

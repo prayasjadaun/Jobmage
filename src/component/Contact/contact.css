@@ -31,7 +31,7 @@
     
 }
 .contact-image img{
-    width: 600px;
+    width: 570px;
 }
 .contact-form{
     flex: 1;
@@ -91,7 +91,8 @@
         align-items: center;
     }
     .contact-image img{
-        width: 300px;
+        width: 400px;
+    
 
     }
     .contact-form input{
