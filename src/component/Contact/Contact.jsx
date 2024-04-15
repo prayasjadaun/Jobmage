@@ -5,7 +5,7 @@ function Contact() {
     <section className='contact' id='contact'>
         <div className='contact-headings'>
             <h1 className='contact-head'>Contact Us</h1>
-            <p className='contact-subhead'>we are here to help you..</p>
+            <p className='contact-subhead'>We are here to help you..</p>
         </div>
         <div className='contact-form-container'>
             <div className='contact-image'>
@@ -13,9 +13,9 @@ function Contact() {
             </div>
             <form className='contact-form'>
             <h2 className='contact-query'>Ask your query</h2>
-            <input type="text" placeholder='enter your name' />
-            <input type="email" placeholder='enter your email' />
-            <textarea rows='10' cols='30' name='Query' type='text' className='query' placeholder='write your query'/>
+            <input type="text" placeholder='Enter your name' />
+            <input type="email" placeholder='Enter your email' />
+            <textarea rows='10' cols='30' name='Query' type='text' className='query' placeholder='Write your query'/>
             <button className='contact-btn'>Send</button>
             </form>
         </div>
