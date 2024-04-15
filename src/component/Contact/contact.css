@@ -65,3 +65,50 @@
     color: white;
     background-color: rgb(37, 36, 36);
 }
+
+@media screen and (max-width: 1000px) {
+    .contact-form-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .contact-form{
+        width: 80%;
+        
+    }
+}
+@media screen and (max-width: 700px) {
+   
+    .contact-form{
+        width: 70%;
+        
+    }
+    .contact-image{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .contact-image img{
+        width: 300px;
+
+    }
+    .contact-form input{
+        width: 70%;
+        padding: .5rem;
+        font-size: 20px;
+        border-radius: 20px;
+    }
+    .contact-form textarea{
+        width: 75%;
+        padding: .5rem;
+        font-size: 15px;
+    }
+    .contact-btn{
+        width: 30%;
+        padding: .5rem;
+        font-size: 15px;
+        border-radius: 14px;
+    }
+}
