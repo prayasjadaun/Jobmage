@@ -1,0 +1,81 @@
+.services{
+    height: auto;
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 80px;
+    padding-left: 80px;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.service-heading{
+    font-size: 40px;
+}
+.service-right{
+    display: flex;
+}
+
+.service-para{
+    font-size: 20px;
+}
+
+.about{
+    display: flex;
+    height: 300px;
+    flex-direction: column;
+    flex: 1;
+    gap: 1rem;
+}
+.service-image{
+    flex: 1;
+    padding-left: 8rem;
+}
+.service-type{
+    gap: 2rem;
+}
+
+.service-jobs{
+    display: flex;
+}
+
+
+img{
+    width: 300px;
+}
+
+
+.service-left{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1rem;
+}
+
+@media screen and (max-width: 998px){
+    .about{
+        flex: 1.2;
+    }
+    .service-image{
+        flex: 0.8;
+    }
+    
+}
+
+@media screen and (max-width: 810px){
+    .service-type{
+        display: flex;
+        flex-direction: column;
+    }
+    .service-right,
+    .service-left{
+        display: flex;
+        flex-direction: column;
+    }
+    .service-image{
+        flex: 1;
+        padding-left: 0;
+    }
+
+}

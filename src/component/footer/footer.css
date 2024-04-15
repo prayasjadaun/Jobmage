@@ -1,0 +1,32 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0px 2px 10px rgb(72, 69, 69);
+}
+.foot-logo{
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.foot-nav-links{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+}
+
+.a-link{
+    text-decoration: none;
+
+}
+.foot-social{
+    display:flex;
+    justify-content: center;
+    gap: 2rem;
+}
+.copyright{
+    text-align: center;
+    margin-bottom: 2rem;
+}
