@@ -19,8 +19,8 @@ function SignUp() {
         <input type="password" placeholder='password' />
         <label htmlFor="Password">Confirm Password</label>
         <input type="password" placeholder='password' />
-        <button className='signup-btn'>Register</button>
-        <p>Already have an account? <a ><Link to='/login'>Login</Link></a></p>
+        <button className='signup-btn'> <a><Link to='/sidebar'>Register</Link></a></button>
+        <p className='login-sub-btn'>Already have an account? <a ><Link to='/login'>Login</Link></a></p>
 
       </form>
     </div>

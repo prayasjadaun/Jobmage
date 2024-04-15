@@ -53,5 +53,9 @@
 
 .login-form a{
     text-decoration: none;
-    color: rgb(21, 21, 224);
+    color: white;
+}
+.login-sub-btn a{
+    text-decoration: none;
+    color: rgb(80, 80, 232);
 }

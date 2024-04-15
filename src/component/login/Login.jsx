@@ -15,8 +15,8 @@ function Login() {
         <input type="email" placeholder='user@exmaple.com' />
         <label htmlFor="Password">Password</label>
         <input type="password" placeholder='password' />
-        <button className='login-btn'>Login</button>
-        <p>Don't have an account? <a ><Link to='/signup'>Create Account</Link></a></p>
+        <button className='login-btn'> <a><Link to='/sidebar'>Login</Link></a></button>
+        <p className='login-sub-btn'>Don't have an account? <a ><Link to='/signup'>Create Account</Link></a></p>
 
       </form>
     </div>

@@ -52,7 +52,11 @@
     }
 }
 
+.login-sub-btn a{
+    text-decoration: none;
+    color: rgb(80, 80, 232);
+}
 .signup-form a{
     text-decoration: none;
-    color: rgb(21, 21, 224);
+    color: white;
 }
