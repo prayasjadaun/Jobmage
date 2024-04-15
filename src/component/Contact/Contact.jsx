@@ -13,9 +13,9 @@ function Contact() {
             </div>
             <form className='contact-form'>
             <h2 className='contact-query'>Ask your query</h2>
-            <input type="text" placeholder='enter your name' />
-            <input type="email" placeholder='enter your email' />
-            <textarea rows='10' cols='30' name='Query' type='text' className='query' placeholder='write your query'/>
+            <input type="text" placeholder='Enter your name' />
+            <input type="email" placeholder='Enter your email' />
+            <textarea rows='10' cols='30' name='Query' type='text' className='query' placeholder='Write your query'/>
             <button className='contact-btn'>Send</button>
             </form>
         </div>
