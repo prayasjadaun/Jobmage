@@ -9,7 +9,7 @@
 }
 
 .nav-logo{
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 700;
     
 }
@@ -30,7 +30,7 @@
 .nav-link{
     display: flex;
     gap: 2rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     justify-content: center;
     align-items: center;
     font-weight: 500;
@@ -44,7 +44,7 @@
 }
 
 .nav-signup{
-    font-size: 17px;
+    font-size: 15px;
     padding: 10px 20px;
     border: none;
     color: white;
@@ -99,7 +99,7 @@ hr{
         padding: 1rem 2rem;
     }
     .nav-logo{
-        font-size: 1.3rem;
+        font-size: 1rem;
         font-weight: 700;
     }
     .nav-link{

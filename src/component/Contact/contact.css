@@ -13,10 +13,10 @@
     gap: 1rem;
 }
 .contact-head{
-    font-size: 55px;
+    font-size: 40px;
 }
 .contact-subhead{
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .contact-form-container{
@@ -41,25 +41,25 @@
 
 }
 .contact-query{
-    font-size: 30px;
+    font-size: 22px;
 }
 .contact-form input{
     width: 70%;
-    padding: 2rem;
-    font-size: 20px;
+    padding: .6rem;
+    font-size: 18px;
     border-radius: 20px;
 }
 .contact-form textarea{
     width: 75%;
-    padding: 1.5rem;
-    font-size: 20px;
+    padding: .6rem;
+    font-size: 18px;
     border-radius: 20px;
     resize: none;
 }
 .contact-btn{
     width: 30%;
-    padding: 1.5rem;
-    font-size: 25px;
+    padding: .7rem;
+    font-size: 15px;
     border-radius: 14px;
     border: none;
     color: white;
@@ -97,8 +97,8 @@
     }
     .contact-form input{
         width: 70%;
-        padding: .5rem;
-        font-size: 20px;
+        padding: .3rem;
+        font-size: 18px;
         border-radius: 20px;
     }
     .contact-form textarea{
@@ -112,4 +112,12 @@
         font-size: 15px;
         border-radius: 14px;
     }
+}
+
+@media screen and (max-width: 640px){
+    .contact-image{
+        width: 400px;
+        padding-right: 0px;
+    }
+    
 }
