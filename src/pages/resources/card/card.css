@@ -1,0 +1,55 @@
+
+.card-container {
+  margin: 0 auto;
+  max-width: 870px;
+  height: 200px;
+  margin-bottom: 3.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  width: calc(20% - 20px);
+  background-color: white;
+  height: auto;
+  border-radius: 8px;
+  padding: 4px;
+  text-align: center;
+  margin-right: 20px;
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.card img {
+  width: 200px; 
+  height: 200px; 
+  object-fit: cover; 
+  border-radius: 8px;
+}
+
+.card:last-child {
+  margin-right: 0;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.slick-slide {
+  padding: 10px 0;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #333;
+  font-size: 20px;
+}
+
+.slick-prev {
+  left: -20px;
+}
+
+.slick-next {
+  right: -20px;
+}

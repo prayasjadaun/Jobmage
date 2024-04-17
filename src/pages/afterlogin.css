@@ -1,20 +1,22 @@
+
+
 .afterlogin {
-    display: flex;
+  display: flex;
+  height: 100vh;
+}
+
+.page-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+  .afterlogin {
+    flex-direction: column;
   }
-  
-  .sidebar {
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #f0f0f0;
-    border-right: 1px solid #ccc;
-  }
-  
+
   .page-content {
-    
-    flex: 1;
-    padding-left: 260px; 
+    padding: 10px;
   }
-  
+}
