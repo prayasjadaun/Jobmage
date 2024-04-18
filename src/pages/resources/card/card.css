@@ -23,7 +23,7 @@
 .card img {
   width: 200px; 
   height: 200px; 
-  object-fit: cover; 
+  object-fit: contain; 
   border-radius: 8px;
 }
 
@@ -40,8 +40,8 @@
   padding: 10px 0;
 }
 
-.slick-prev:before,
-.slick-next:before {
+.cards .slick-prev:before,
+.cards .slick-next:before {
   color: #333;
   font-size: 20px;
 }
@@ -52,4 +52,21 @@
 
 .slick-next {
   right: -20px;
+}
+
+@media screen and (max-width:400px) {
+  .card-container {
+    margin: 0 auto;
+    max-width: 570px;
+    height: 200px;
+    margin-bottom: 3.5rem;
+    margin-top: 2rem;
+  }
+  
+  .card img {
+    width: 305px; 
+    height: 195px; 
+    object-fit: contain; 
+    border-radius: 8px;
+  }
 }
