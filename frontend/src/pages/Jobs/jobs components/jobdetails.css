@@ -1,0 +1,15 @@
+
+.job-details {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5px;
+    background-image: linear-gradient(90deg,skyblue, grey);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 96.5vh;
+  }
+
+  .detail-button{
+    padding-left: 2rem;
+    display: flex;
+    gap: 2rem;
+  }
