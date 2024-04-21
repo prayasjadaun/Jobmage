@@ -11,12 +11,14 @@ function Resources() {
       <div className="banners">
       <SliderCard images={sliderData} />
       </div>
-      <h2 resources-head>Top Featured</h2>
+      
       <div className="courses">
+      <h2 className='resources-head'>Top Featured courses</h2>
       <Card cardData={CardData}/>
       </div>
-      <h2 className='resources-head'>Top Books</h2>
+      
       <div className="books">
+      <h2 className='resources-head'>Top Books</h2>
       <Card cardData={Books}/>
       </div>
       

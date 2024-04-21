@@ -4,14 +4,12 @@ import './userprofile.css';
 
 const UserProfile = () => {
   const [user, setUser] = useState({
-    name: 'krishns',
-    email: 'krishna@example.com'
+    name: 'krishna',
+    email: 'krishna@gmail.com'
   });
   const history = useNavigate();
 
   const handleLogout = () => {
-    // Perform logout actions here (e.g., clear user data from local storage)
-    // For now, let's just redirect to the login page
     history.push('/login');
   };
 

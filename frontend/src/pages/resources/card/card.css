@@ -2,7 +2,7 @@
 .card-container {
   margin: 0 auto;
   max-width: 870px;
-  height: 200px;
+  height: auto;
   margin-bottom: 3.5rem;
   margin-top: 2rem;
 }
@@ -52,6 +52,19 @@
 
 .slick-next {
   right: -20px;
+}
+.button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+}
+.button:hover {
+  background-color: black;
+  cursor: pointer;
 }
 
 @media screen and (max-width:400px) {

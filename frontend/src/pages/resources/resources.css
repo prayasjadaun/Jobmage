@@ -3,6 +3,13 @@
     min-height: 100vh;
     padding-left: 310px;
     background-color: white;
+    gap: 1.2rem;
+}
+.courses{
+    height: auto;
+}
+.books{
+    height: auto;
 }
 @media screen and (max-width: 778px) {
     .resources{

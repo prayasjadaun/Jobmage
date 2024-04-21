@@ -1,12 +1,15 @@
 // Card.jsx
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import './card.css';
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./card.css";
 
+const Card = ({ cardData }) => {
+  const handleApplyClick = (link) => {
+    window.open(link, "_blank");
+  };
 
-const Card = ({cardData}) => {
   const settings = {
     infinite: true,
     speed: 500,
@@ -32,13 +35,16 @@ const Card = ({cardData}) => {
 
   return (
     <div className="card-container">
-      
-      <Slider className='cards' {...settings}>
+      <Slider className="cards" {...settings}>
         {cardData.map((card) => (
           <div key={card.id} className="card">
-            
             <img src={card.image} alt={card.title} />
             <h3>{card.title}</h3>
+            <button
+              className="button"
+              onClick={() => handleApplyClick(card.apply)} >
+              Get
+            </button>
           </div>
         ))}
       </Slider>
