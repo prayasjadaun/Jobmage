@@ -10,11 +10,11 @@ function Navbar() {
         <Link to='/' className='Link'><span className='blue'>Job</span><span className='green'>Mage</span></Link>
       </div>
       <div className='nav-link nav-menu'>
-        <div className="nav-icon">Jobs</div>
-        <div className="nav-icon">Resources</div>
-        <div className="nav-icon">Roadmap</div>
+        <div className="nav-icon"><Link to="/login" style={{textDecoration:"none", color:"black"}}>Jobs</Link></div>
+        <div className="nav-icon"><Link to="/login" style={{textDecoration:"none", color:"black"}}>Resources</Link></div>
+        <div className="nav-icon"><Link to="/login" style={{textDecoration:"none", color:"black"}}>Roadmap</Link></div>
         <div className="nav-icon">Contact</div>
-        <div className="nav-icon">Dashboard</div>
+        <div className="nav-icon"><Link to="/login" style={{textDecoration:"none", color:"black"}}>Dashboard </Link></div>
         <button className="nav-signup"><Link to="/login" style={{textDecoration:"none", color:"white"}}>SignUp</Link> </button>
       </div>
       <div className="nav-toggle">
