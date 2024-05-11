@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../../utils/api';
 import './login.css';
 
 function Login() {
-  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [formData, setFormData] = useState({ email: '', password: '', role: 'user' });
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -15,17 +16,19 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const token = await loginUser(formData); // loginUser returns the token directly this is important
+      const { token } = await loginUser(formData);
       console.log('Login successful');
-      console.log(token); 
       localStorage.setItem('token', token);
-      navigate('/after');
+      setError('');
+      setLoading(true);
+      setTimeout(() => {
+        navigate('/after');
+      }, 3000);
     } catch (error) {
-      setError('Login failed. Please try again.');
+      setError(error.response?.data?.error || 'Login failed. Please try again.');
       console.error(error);
     }
   };
-  
 
   return (
     <section className="log-container">
@@ -38,6 +41,7 @@ function Login() {
         </div>
         <h2>Login</h2>
         {error && <p className="error-message">{error}</p>}
+        {loading && <p>signing in...</p>}
         <form className="login-form" onSubmit={handleSubmit}>
           <label htmlFor="Email">Email</label>
           <input
@@ -58,12 +62,7 @@ function Login() {
             required
           />
           <label htmlFor="role">Role</label>
-          <select className='roles'
-            name="role"
-            value={formData.role}
-            onChange={handleChange}
-            required
-          >
+          <select className="roles" name="role" value={formData.role} onChange={handleChange} required>
             <option value="user">User</option>
             <option value="employer">Employer</option>
             <option value="admin">Admin</option>

@@ -3,14 +3,14 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
-const app = express();
-const PORT = process.env.PORT || 5000;
 
-// Middleware
+const app = express();
+const PORT = process.env.PORT || 5001;
+
 app.use(express.json());
 app.use(cors());
 
-// Connect to MongoDB
+// Connecting to MongoDB
 mongoose
   .connect('mongodb+srv://mebhikhelega:HfejPa2HjeFwdBpD@cluster0.0sftqn0.mongodb.net/', {
     useNewUrlParser: true,
@@ -48,6 +48,11 @@ const verifyToken = (req, res, next) => {
 app.post('/signup', async (req, res) => {
   try {
     const { username, email, password, role } = req.body;
+    // Check if the email already exists in the database
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(409).json({ error: 'Email already exists' });
+    }
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({ username, email, password: hashedPassword, role });
     await newUser.save();
@@ -91,6 +96,22 @@ app.get('/api/username/:userId', verifyToken, async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+// ye hai admin role check krne k liye
+
+
+// user profile
+app.get('/api/profile', verifyToken, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.userId);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    res.json({ username: user.username, email: user.email, role: user.role });
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 
 // Protected routes
 const protectedRoute = require('./routes/protectedRoute');

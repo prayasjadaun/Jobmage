@@ -11,7 +11,10 @@ function SignUp() {
     confirmPassword: '',
     role: 'user',
   });
-  const [error, setError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [generalError, setGeneralError] = useState('');
+  const [loading, setLoading] = useState(false); 
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -20,23 +23,33 @@ function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     // Password validation
     if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
+      setPasswordError('Passwords do not match');
       return;
+    } else {
+      setPasswordError('');
     }
-  
+
     try {
+      setLoading(true); 
       await registerUser(formData);
       console.log('Registration successful');
       navigate('/after');
     } catch (error) {
-      setError(error.response?.data?.error || 'Registration failed. Please try again.');
+      if (error.message === 'Email already exists') {
+        setEmailError('Email already exists');
+        setGeneralError('');
+      } else {
+        setEmailError('');
+        setGeneralError(error.response?.data?.error || 'Registration failed. Please try again.');
+      }
       console.error(error);
+    } finally {
+      setLoading(false); 
     }
   };
-  
 
   return (
     <section className="sign-container">
@@ -48,7 +61,6 @@ function SignUp() {
           </Link>
         </div>
         <h2>Signup</h2>
-        {error && <p className="error-message">{error}</p>}
         <form className="signup-form" onSubmit={handleSubmit}>
           <label htmlFor="username">Username</label>
           <input
@@ -68,6 +80,7 @@ function SignUp() {
             onChange={handleChange}
             required
           />
+          {emailError && <p className="error-message">{emailError}</p>}
           <label htmlFor="Password">Password</label>
           <input
             type="password"
@@ -77,6 +90,7 @@ function SignUp() {
             onChange={handleChange}
             required
           />
+          {passwordError && <p className="error-message">{passwordError}</p>}
           <label htmlFor="confirmPassword">Confirm Password</label>
           <input
             type="password"
@@ -87,18 +101,14 @@ function SignUp() {
             required
           />
           <label htmlFor="role">Role</label>
-          <select className='roles'
-            name="role"
-            value={formData.role}
-            onChange={handleChange}
-            required
-          >
+          <select className="roles" name="role" value={formData.role} onChange={handleChange} required>
             <option value="user">User</option>
             <option value="employer">Employer</option>
             <option value="admin">Admin</option>
           </select>
-          <button type="submit" className="signup-btn">
-            Register
+          {generalError && <p className="error-message">{generalError}</p>}
+          <button type="submit" className="signup-btn" disabled={loading}>
+            {loading ? 'Registering...' : 'Register'}
           </button>
           <p className="login-sub-btn">
             Already have an account? <Link to="/login">Login</Link>
