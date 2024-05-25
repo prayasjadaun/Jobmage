@@ -1,3 +1,4 @@
+// JobList.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -10,7 +11,7 @@ function JobList({ jobs }) {
           <p>Company: {job.company}</p>
           <p>Location: {job.location}</p>
           <p>Type: {job.type}</p>
-          <p>Status: {job.status}</p>
+          <p>Posted by: {job.postedBy}</p>
           <p>Posted on: {job.postedOn}</p>
           <Link className='button' to={`/job/${job.id}`}>Details</Link>
         </div>

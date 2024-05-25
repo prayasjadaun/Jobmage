@@ -1,16 +1,22 @@
 import React from 'react';
-import './adminpanel.css'
 import { Link } from 'react-router-dom';
+import './adminpanel.css';
+
 const AdminPanel = () => {
   return (
     <div className='admin-panel'>
-      <h2>Admin Panel</h2>
-      <Link to='/postJob' className="link-button">
-          <h4>Post a job</h4>
+      <h2 className='admin-panel-title'>Admin Panel</h2>
+      <div className='admin-panel-links'>
+        <Link to='/postJob' className="link-button card">
+          <span>Post a Job</span>
         </Link>
-        <Link to='/userList' className="link-button">
-          <h4>Users</h4>
+        <Link to='/userList' className="link-button card">
+          <span>User List</span>
         </Link>
+        <Link to='/jobManage' className="link-button card">
+          <span>Manage Jobs</span>
+        </Link>
+      </div>
     </div>
   );
 };

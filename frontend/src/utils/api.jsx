@@ -76,3 +76,20 @@ export const changeUserRole = async (userId, newRole) => {
     throw error.response?.data || error.message;
   }
 };
+
+export const deleteJob = async (jobId) => {
+  try {
+    await axios.delete(`${API_BASE_URL}/api/jobs/${jobId}`);
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+};
+
+export const editJob = async (jobId, updatedJob) => {
+  try {
+    const response = await axios.patch(`${API_BASE_URL}/api/jobs/${jobId}`, updatedJob);
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+};

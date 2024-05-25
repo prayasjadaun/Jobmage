@@ -10,8 +10,8 @@ function PostJobForm() {
     company: '',
     location: '',
     type: '',
-    status: '',
-    postedOn: '',
+    postedBy: '',
+    postedOn: new Date().toISOString().substr(0, 10), // Set initial value to current date
     description: '',
     apply: ''
   });
@@ -46,8 +46,8 @@ function PostJobForm() {
           company: '',
           location: '',
           type: '',
-          status: '',
-          postedOn: '',
+          postedBy: '',
+          postedOn: new Date().toISOString().substr(0, 10), // Update postedOn to current date
           description: '',
           apply: ''
         });
@@ -71,7 +71,7 @@ function PostJobForm() {
         <input type="text" name="company" placeholder="Company" value={job.company} onChange={handleChange} required />
         <input type="text" name="location" placeholder="Location" value={job.location} onChange={handleChange} required />
         <input type="text" name="type" placeholder="Type" value={job.type} onChange={handleChange} required />
-        <input type="text" name="status" placeholder="Status" value={job.status} onChange={handleChange} required />
+        <input type="text" name="postedBy" placeholder="Posted By" value={job.postedBy} onChange={handleChange} required />
         <input type="date" name="postedOn" placeholder="Posted On" value={job.postedOn} onChange={handleChange} required />
         <textarea name="description" placeholder="Description" value={job.description} onChange={handleChange} required></textarea>
         <input type="text" name="apply" placeholder="Apply URL" value={job.apply} onChange={handleChange} required />

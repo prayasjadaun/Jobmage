@@ -32,7 +32,7 @@ const Job = mongoose.model('Job', {
   company: String,
   location: String,
   type: String,
-  status: String,
+  postedBy: String,
   postedOn: String,
   description: String,
   apply: String,
@@ -97,8 +97,8 @@ app.post('/login', async (req, res) => {
 // Create job route
 app.post('/api/jobs', verifyToken, async (req, res) => {
   try {
-    const { title, company, location, type, status, postedOn, description, apply } = req.body;
-    const newJob = new Job({ title, company, location, type, status, postedOn, description, apply });
+    const { title, company, location, type, postedBy, postedOn, description, apply } = req.body;
+    const newJob = new Job({ title, company, location, type, postedBy, postedOn, description, apply });
     await newJob.save();
     res.status(201).json({ message: 'Job created', jobId: newJob._id }); // Return the ID of the newly created job
   } catch (error) {
@@ -164,19 +164,36 @@ app.patch('/api/users/:userId', async (req, res) => {
   }
 });
 
+// Delete job route
+app.delete('/api/jobs/:jobId', async (req, res) => {
+  try {
+    const job = await Job.findByIdAndDelete(req.params.jobId);
+    if (!job) {
+      return res.status(404).json({ error: 'Job not found' });
+    }
+    res.status(204).end();
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
-// Backend route to get the username and role for a user ID
-// app.get('/api/user/:userId', verifyToken, async (req, res) => {
-//   try {
-//     const user = await User.findById(req.params.userId);
-//     if (!user) {
-//       return res.status(404).json({ error: 'User not found' });
-//     }
-//     res.json({ username: user.username, role: user.role });
-//   } catch (error) {
-//     res.status(500).json({ error: 'Internal server error' });
-//   }
-// });
+// Update job route
+app.patch('/api/jobs/:jobId', async (req, res) => {
+  try {
+    const { title, company, location, type, status, postedOn, description, apply } = req.body;
+    const updatedJob = await Job.findByIdAndUpdate(
+      req.params.jobId,
+      { title, company, location, type, status, postedOn, description, apply },
+      { new: true }
+    );
+    if (!updatedJob) {
+      return res.status(404).json({ error: 'Job not found' });
+    }
+    res.json(updatedJob);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 // User profile route
 app.get('/api/profile', verifyToken, async (req, res) => {

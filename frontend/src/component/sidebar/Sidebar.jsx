@@ -5,7 +5,7 @@ import './sidebar.css';
 
 function Sidebar({ setSelectedPage }) {
   const { userData, isLoading, error } = useUserData();
-  const [selectedLink, setSelectedLink] = useState(null);
+  const [selectedLink, setSelectedLink] = useState('jobs');
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth > 778);
 
   const handleLinkClick = (link) => {
