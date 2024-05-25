@@ -40,8 +40,9 @@ function Jobs() {
   const filteredJobs = jobs.filter(
     (job) =>
       job.title.toLowerCase().includes(searchQuery.toLowerCase()) &&
-      (filterType === "" || job.type === filterType)
+      (filterType === "" || job.type.toLowerCase() === filterType.toLowerCase())
   );
+  
 
   if (isLoading) {
     return (

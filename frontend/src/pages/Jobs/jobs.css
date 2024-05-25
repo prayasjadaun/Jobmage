@@ -55,7 +55,7 @@
 
 /* Job Card */
 .job-card {
-  background-color: #fff;
+  background-color: rgb(247, 241, 241);
   color: #333;
   padding: 20px;
   border-radius: 10px;
@@ -67,6 +67,7 @@
   transform: translateY(-5px);
   background-color: #e0f7fa;
 }
+
 
 
 .job-card__header {
