@@ -5,7 +5,9 @@ import SignUp from './component/login/SignUp';
 import Login from './component/login/Login';
 import Sidebar from './component/sidebar/Sidebar';
 import Afterlogin from './pages/Afterlogin';
-import JobDetails from './pages/Jobs/jobs components/JobDetails';
+import JobDetails from './pages/Jobs/jobs components/JobDetails'; // Import your JobDetails component
+import PostJobForm from './pages/adminPanel/PostJob';
+import UserList from './pages/adminPanel/user/userList';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route exact path="/sidebar" element={<Sidebar />} />
           <Route exact path="/after" element={<Afterlogin />} />
           <Route exact path="/job/:id" element={<JobDetails />} /> 
+          <Route exact path="/postJob" element={<PostJobForm />} /> 
+          <Route exact path="/userList" element={<UserList />} /> 
         </Routes>
       </div>
     </Router>

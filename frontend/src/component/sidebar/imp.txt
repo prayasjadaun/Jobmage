@@ -1,0 +1,8 @@
+{userRole === 'admin' && (
+    <div
+      className={selectedLink === 'admin-panel' ? 'section-links active' : 'section-links'}
+      onClick={() => handleLinkClick('admin-panel')}
+    >
+      Admin Panel
+    </div>
+  )}

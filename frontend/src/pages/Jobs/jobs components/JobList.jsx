@@ -7,11 +7,11 @@ function JobList({ jobs }) {
       {jobs.map((job) => (
         <div className="job-card" key={job.id}>
           <h2>{job.title}</h2>
-          <p>Company : {job.company}</p>
-          <p>Location : {job.location}</p>
-          <p>Type : {job.type}</p>
-          <p>Status : {job.status}</p>
-          <p>Posted on : {job.postedOn}</p>
+          <p>Company: {job.company}</p>
+          <p>Location: {job.location}</p>
+          <p>Type: {job.type}</p>
+          <p>Status: {job.status}</p>
+          <p>Posted on: {job.postedOn}</p>
           <Link className='button' to={`/job/${job.id}`}>Details</Link>
         </div>
       ))}

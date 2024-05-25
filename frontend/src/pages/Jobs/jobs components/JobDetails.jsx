@@ -1,44 +1,38 @@
-import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import jobListings from './jobdata';
-import './jobdetails.css';
+import React, { useState, useEffect } from 'react';
 
-function JobDetails() {
-  const navigate = useNavigate();
-  const { id } = useParams();
+function JobDetails({ jobId }) {
+  const [job, setJob] = useState(null);
 
-  const job = jobListings.find((job) => job.id === parseInt(id));
+  useEffect(() => {
+    const fetchJobDetails = async () => {
+      try {
+        const response = await fetch(`http://localhost:5001/api/jobs/${jobId}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch job details');
+        }
+        const data = await response.json();
+        setJob(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchJobDetails();
+  }, [jobId]);
 
   if (!job) {
-    return <div>Job not found</div>;
+    return <div>Loading...</div>;
   }
-
-  const handleApplyClick = () => {
-   
-    window.open(`http://${job.apply}`, '_blank');
-  };
-
-  const handleBackClick = () => {
-    navigate(-1);
-  };
 
   return (
     <div className="job-details">
       <h2>{job.title}</h2>
-      <p>Company : {job.company}</p>
-      <p>Location : {job.location}</p>
-      <p>Type : {job.type}</p>
-      <p>Status : {job.status}</p>
-      <p>Position : {job.postedOn}</p>
-      <p>Description : {job.description}</p>
-      <div className="detail-button">
-        <button className="button" onClick={handleApplyClick}>
-          Apply
-        </button>
-        <button className="button" onClick={handleBackClick}>
-          Back
-        </button>
-      </div>
+      <p>Company: {job.company}</p>
+      <p>Location: {job.location}</p>
+      <p>Type: {job.type}</p>
+      <p>Status: {job.status}</p>
+      <p>Posted on: {job.postedOn}</p>
+      <p>Description: {job.description}</p>
+      <p>How to apply: {job.apply}</p>
     </div>
   );
 }

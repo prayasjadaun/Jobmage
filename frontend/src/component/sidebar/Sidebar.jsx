@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import useUserData from '../Hooks/useUserdata';
 import './sidebar.css';
 
-function Sidebar({ setSelectedPage, userId }) {
+function Sidebar({ setSelectedPage }) {
+  const { userData, isLoading, error } = useUserData();
   const [selectedLink, setSelectedLink] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth > 778);
-  const [username, setUsername] = useState('');
-  const [userRole, setUserRole] = useState('');
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   const handleLinkClick = (link) => {
     setSelectedLink(link);
@@ -21,20 +18,6 @@ function Sidebar({ setSelectedPage, userId }) {
   };
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await axios.get(`/api/user/${userId}`);
-        setUsername(response.data.username);
-        setUserRole(response.data.role);
-        setIsLoading(false);
-      } catch (error) {
-        setError('Error fetching user data');
-        setIsLoading(false);
-      }
-    };
-
-    fetchUserData();
-
     const handleResize = () => {
       setIsSidebarOpen(window.innerWidth > 778);
     };
@@ -44,7 +27,7 @@ function Sidebar({ setSelectedPage, userId }) {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [userId]);
+  }, []);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -64,7 +47,7 @@ function Sidebar({ setSelectedPage, userId }) {
           </Link>
         </div>
         <div className="sidebar-user">
-          <div className="user-info">Hi, {username || 'guest'}</div>
+          <div className="user-info">Hi, {userData?.username || 'guest'}</div>
         </div>
         <div className="sidebar-links">
           <div
@@ -85,14 +68,6 @@ function Sidebar({ setSelectedPage, userId }) {
           >
             Feeds
           </div>
-          {userRole === 'admin' && (
-    <div
-      className={selectedLink === 'admin-panel' ? 'section-links active' : 'section-links'}
-      onClick={() => handleLinkClick('admin-panel')}
-    >
-      Admin Panel
-    </div>
-  )}
           <div
             className={selectedLink === 'chatbot' ? 'section-links active' : 'section-links'}
             onClick={() => handleLinkClick('chatbot')}
@@ -105,6 +80,14 @@ function Sidebar({ setSelectedPage, userId }) {
           >
             Settings
           </div>
+          {userData?.role === 'admin' && (
+            <div
+              className={selectedLink === 'admin' ? 'section-links active' : 'section-links'}
+              onClick={() => handleLinkClick('admin')}
+            >
+              Admin
+            </div>
+          )}
           <button className="close-button" onClick={toggleSidebar}>
             close
           </button>

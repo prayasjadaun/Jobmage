@@ -6,11 +6,9 @@ import Contact from '../component/Contact/Contact'
 import Footer from '../component/footer/Footer'
 
 
-
 function LandingPage() {
   return (
     <div>
-      
       <Navbar />
       <Home />
       <Services />

@@ -1,0 +1,30 @@
+.admin-panel {
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: calc(100vw - 310px);
+    margin: 0 auto;
+    padding-left: 250px;
+    font-family: Arial, sans-serif;
+    background-color:white;
+  }
+  .link-button {
+    display: flex;
+    padding: 10px;
+    background-color: #007bff; 
+    color: white;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+  }
+  .link-button h4 {
+      text-align: center;      
+  }
+  
+  .link-button:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+  }
+  

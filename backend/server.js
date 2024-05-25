@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
-
 const app = express();
 const PORT = process.env.PORT || 5001;
 
@@ -27,6 +26,18 @@ const User = mongoose.model('User', {
   role: String,
 });
 
+// Job model
+const Job = mongoose.model('Job', {
+  title: String,
+  company: String,
+  location: String,
+  type: String,
+  status: String,
+  postedOn: String,
+  description: String,
+  apply: String,
+});
+
 // Secret key for JWT
 const secretKey = 'HfejPa2HjeFwdBpD';
 
@@ -48,7 +59,6 @@ const verifyToken = (req, res, next) => {
 app.post('/signup', async (req, res) => {
   try {
     const { username, email, password, role } = req.body;
-    // Check if the email already exists in the database
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(409).json({ error: 'Email already exists' });
@@ -84,22 +94,91 @@ app.post('/login', async (req, res) => {
   }
 });
 
-// Backend route to get the username for a user ID
-app.get('/api/username/:userId', verifyToken, async (req, res) => {
+// Create job route
+app.post('/api/jobs', verifyToken, async (req, res) => {
   try {
-    const user = await User.findById(req.params.userId);
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
-    res.json({ username: user.username });
+    const { title, company, location, type, status, postedOn, description, apply } = req.body;
+    const newJob = new Job({ title, company, location, type, status, postedOn, description, apply });
+    await newJob.save();
+    res.status(201).json({ message: 'Job created', jobId: newJob._id }); // Return the ID of the newly created job
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+
+// Get all jobs route
+app.get('/api/jobs', async (req, res) => {
+  try {
+    const jobs = await Job.find();
+    res.json(jobs);
   } catch (error) {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-// ye hai admin role check krne k liye
+
+// Get job by ID route
+app.get('/api/jobs/:jobId', async (req, res) => {
+  try {
+    const job = await Job.findById(req.params.jobId);
+    if (!job) {
+      return res.status(404).json({ error: 'Job not found' });
+    }
+    res.json(job);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Assuming you already have a User model defined
+// Add the following routes to your server
+
+// Get all users
+app.get('/api/users', async (req, res) => {
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Delete a user
+app.delete('/api/users/:userId', async (req, res) => {
+  try {
+    await User.findByIdAndDelete(req.params.userId);
+    res.status(204).end();
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Change user role
+app.patch('/api/users/:userId', async (req, res) => {
+  try {
+    const { role } = req.body;
+    await User.findByIdAndUpdate(req.params.userId, { role });
+    res.status(200).end();
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 
-// user profile
+// Backend route to get the username and role for a user ID
+// app.get('/api/user/:userId', verifyToken, async (req, res) => {
+//   try {
+//     const user = await User.findById(req.params.userId);
+//     if (!user) {
+//       return res.status(404).json({ error: 'User not found' });
+//     }
+//     res.json({ username: user.username, role: user.role });
+//   } catch (error) {
+//     res.status(500).json({ error: 'Internal server error' });
+//   }
+// });
+
+// User profile route
 app.get('/api/profile', verifyToken, async (req, res) => {
   try {
     const user = await User.findById(req.user.userId);
@@ -112,11 +191,8 @@ app.get('/api/profile', verifyToken, async (req, res) => {
   }
 });
 
-
 // Protected routes
 const protectedRoute = require('./routes/protectedRoute');
 app.use('/api/protected', verifyToken, protectedRoute);
-
-app.use(cors({ origin: 'http://localhost:5173' }));
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

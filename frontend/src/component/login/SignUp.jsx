@@ -104,7 +104,6 @@ function SignUp() {
           <select className="roles" name="role" value={formData.role} onChange={handleChange} required>
             <option value="user">User</option>
             <option value="employer">Employer</option>
-            <option value="admin">Admin</option>
           </select>
           {generalError && <p className="error-message">{generalError}</p>}
           <button type="submit" className="signup-btn" disabled={loading}>

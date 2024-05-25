@@ -1,28 +1,33 @@
-.home{
+body {
+    overflow-x: hidden;
+  }
+  
+  .home {
     height: auto;
     display: flex;
-    margin-top: 10%; 
+    margin-top: 10%;
     margin-bottom: 8rem;
-}
-
-.home-left{
+    overflow-x: hidden;
+  }
+  
+  .home-left {
     display: flex;
     flex: 1;
     flex-direction: column;
     gap: 2rem;
     padding-left: 10%;
-    
-}
-.home-heading{
+  }
+  
+  .home-heading {
     font-size: 40px;
     width: 80%;
-}
-.home-para{
+  }
+  
+  .home-para {
     font-size: 18px;
-    
-}
-
-.get-started-btn{
+  }
+  
+  .get-started-btn {
     width: 30%;
     font-size: 18px;
     padding: 0.9rem;
@@ -32,64 +37,60 @@
     color: white;
     margin-bottom: 10px;
     cursor: pointer;
-    &:hover{
-        background-color: green;
-    }
-}
-
-.home-right{
+  }
+  
+  .get-started-btn:hover {
+    background-color: green;
+  }
+  
+  .home-right {
     flex: 1;
-    
-}
-.home-image{
+  }
+  
+  .home-image {
     display: flex;
     justify-content: center;
-}
-.home-image img{
+  }
+  
+  .home-image img {
     width: 500px;
-}
-
-
-@media screen and (max-width: 1170px) {
-    .home-heading{
-        font-size: 45px;
-        width: 80%;
+  }
+  
+  @media screen and (max-width: 1170px) {
+    .home-heading {
+      font-size: 45px;
+      width: 80%;
     }
-    .home-para{
-        font-size: 20px;
-        
+  
+    .home-para {
+      font-size: 20px;
     }
-    .get-started-btn{
-        width: 40%;
-        font-size: 17px;
+  
+    .get-started-btn {
+      width: 40%;
+      font-size: 17px;
     }
-    
-    
-
-}
-
-@media screen and (max-width: 900px){
-    .home{
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .home {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
     }
-    .home-heading{
-        font-size: 30px;
-        width: 80%;
-        
+  
+    .home-heading {
+      font-size: 30px;
+      width: 80%;
     }
-    .home-para{
-        font-size: 15px;
-        
+  
+    .home-para {
+      font-size: 15px;
     }
-    
-   
-    
-}
-@media screen and (max-width: 640px){
-    .home-image img{
-        width: 300px;
+  }
+  
+  @media screen and (max-width: 640px) {
+    .home-image img {
+      width: 300px;
     }
-    
-}
+  }

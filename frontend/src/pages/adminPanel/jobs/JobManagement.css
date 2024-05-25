@@ -1,0 +1,73 @@
+.job-management {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .job-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .job-table th,
+  .job-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .job-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .job-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .job-table tr:hover {
+    background-color: #ddd;
+  }
+  
+  .edit-input {
+    width: 100%;
+  }
+  
+  .save-button,
+  .cancel-button,
+  .edit-button,
+  .delete-button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .save-button,
+  .cancel-button {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .save-button:hover,
+  .cancel-button:hover {
+    background-color: #45a049;
+  }
+  
+  .edit-button {
+    background-color: #2196f3;
+    color: white;
+  }
+  
+  .edit-button:hover {
+    background-color: #1e87db;
+  }
+  
+  .delete-button {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .delete-button:hover {
+    background-color: #d32f2f;
+  }
+  
