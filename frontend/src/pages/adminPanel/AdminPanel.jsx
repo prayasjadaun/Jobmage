@@ -16,6 +16,12 @@ const AdminPanel = () => {
         <Link to='/jobManage' className="link-button card">
           <span>Manage Jobs</span>
         </Link>
+        <Link to='/postRes' className="link-button card">
+          <span>Post Resources</span>
+        </Link>
+        <Link to='/ResManage' className="link-button card">
+          <span>Resource Management</span>
+        </Link>
       </div>
     </div>
   );

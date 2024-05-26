@@ -1,29 +1,25 @@
-import React from 'react'
-import SliderCard from './slidercard/SliderCard'
-import sliderData from './slidercard/SliderData'
-import Card from './card/Card'
-import CardData from './card/CardData'
-import './resources.css'
-import Books from './books/Books'
+import React from 'react';
+import SliderCard from './slidercard/SliderCard';
+import Courses from './books/courses';
+import Books from './books/Books';
+import './resources.css';
+
 function Resources() {
   return (
     <div className='resources'>
       <div className="banners">
-      <SliderCard images={sliderData} />
+        <SliderCard />
       </div>
-      
+
       <div className="courses">
-      <h2 className='resources-head'>Top Featured courses</h2>
-      <Card cardData={CardData}/>
+        <Courses />
       </div>
-      
+
       <div className="books">
-      <h2 className='resources-head'>Top Books</h2>
-      <Card cardData={Books}/>
+        <Books />
       </div>
-      
     </div>
-  )
+  );
 }
 
-export default Resources
+export default Resources;

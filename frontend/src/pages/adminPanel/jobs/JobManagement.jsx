@@ -15,7 +15,10 @@ function JobManagement() {
     status: '',
     postedOn: '',
     description: '',
-    apply: ''
+    apply: '',
+    applyBy:'',
+    salary:'',
+    skills:''
   });
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -45,7 +48,10 @@ function JobManagement() {
       status: '',
       postedOn: '',
       description: '',
-      apply: ''
+      apply: '',
+      applyBy:'',
+      salary:'',
+      skills:''
     });
   };
 
@@ -62,7 +68,10 @@ function JobManagement() {
           status: '',
           postedOn: '',
           description: '',
-          apply: ''
+          apply: '',
+          applyBy:'',
+          salary:'',
+          skills:''
         });
       })
       .catch(error => {
@@ -108,6 +117,9 @@ function JobManagement() {
             <th>Posted On</th>
             <th>Description</th>
             <th>Apply URL</th>
+            <th>Salary </th>
+            <th>Skills</th>
+            <th>Apply By</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -122,6 +134,10 @@ function JobManagement() {
               <td>{editingJobId === job._id ? <input type="date" name="postedOn" value={editFormData.postedOn} onChange={handleInputChange} /> : job.postedOn}</td>
               <td>{editingJobId === job._id ? <textarea name="description" value={editFormData.description} onChange={handleInputChange} /> : job.description}</td>
               <td>{editingJobId === job._id ? <input type="text" name="apply" value={editFormData.apply} onChange={handleInputChange} /> : job.apply}</td>
+              <td>{editingJobId === job._id ? <input type="text" name="salary" value={editFormData.salary} onChange={handleInputChange} /> : job.salary}</td>
+              <td>{editingJobId === job._id ? <input type="text" name="skills" value={editFormData.skills} onChange={handleInputChange} /> : job.skills}</td>
+              <td>{editingJobId === job._id ? <input type="date" name="applyBy" value={editFormData.applyBy} onChange={handleInputChange} /> : job.applyBy}</td>
+
               <td className="action-buttons">
                 {editingJobId === job._id ? (
                   <>

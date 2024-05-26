@@ -4,27 +4,25 @@ import Home from '../component/home/Home';
 import Services from '../component/home/Services';
 import Contact from '../component/Contact/Contact';
 import Footer from '../component/footer/Footer';
-import ChatBot from './ChatBot/ChatBot'; 
-import ChatIcon from './ChatBot/ChatIcon'; 
+import useUserData from '../component/Hooks/useUserdata';
+import Loader from '../component/Loader/loader';
 
 function LandingPage() {
-  const [isChatOpen, setIsChatOpen] = useState(false);
+  const { userData, isLoading } = useUserData();
 
-  const toggleChat = () => {
-    setIsChatOpen(!isChatOpen);
-  };
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div>
-      <Navbar />
+      <Navbar userData={userData} />
       <Home />
       <Services />
       <Contact />
       <Footer />
-      <ChatIcon toggleChat={toggleChat} />
-      <ChatBot isOpen={isChatOpen} toggleChat={toggleChat} />
     </div>
   );
 }
 
-export default LandingPage;
+export default LandingPage

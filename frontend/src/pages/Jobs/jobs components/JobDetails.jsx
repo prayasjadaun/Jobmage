@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import "./jobdetails.css"
+import Loader from '../../../component/Loader/loader';
 
 function JobDetails() {
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ function JobDetails() {
   }, [jobId]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div><Loader /></div>;
   }
 
   if (error) {

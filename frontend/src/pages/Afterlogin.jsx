@@ -7,8 +7,7 @@ import Feeds from "./feeds/Feeds";
 import Resources from "./resources/Resources";
 import ChatBot from "./ChatBot/ChatBot";
 import UserProfile from "./profile/UserProfile";
-import AdminPanel from "./adminPanel/AdminPanel"; // Import AdminPanel
-import ChatIcon from "./ChatBot/ChatIcon";
+import AdminPanel from "./adminPanel/AdminPanel"; 
 
 function Afterlogin() {
   const [selectedPage, setSelectedPage] = useState("jobs");
@@ -44,7 +43,7 @@ function Afterlogin() {
         return <ChatBot />;
       case "settings":
         return <UserProfile />;
-      case "admin": // Add this case
+      case "admin": 
         return <AdminPanel />;
       default:
         return null;

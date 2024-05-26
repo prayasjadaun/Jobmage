@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createJob } from '../../utils/api'; 
+import { createJob } from '../../../utils/api'; 
 import { useNavigate } from 'react-router-dom';
 import './PostJob.css'; 
 
