@@ -68,12 +68,7 @@ function Sidebar({ setSelectedPage }) {
           >
             Feeds
           </div>
-          <div
-            className={selectedLink === 'chatbot' ? 'section-links active' : 'section-links'}
-            onClick={() => handleLinkClick('chatbot')}
-          >
-            ChatBot
-          </div>
+        
           <div
             className={selectedLink === 'settings' ? 'section-links active' : 'section-links'}
             onClick={() => handleLinkClick('settings')}

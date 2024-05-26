@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-function JobDetails({ jobId }) {
+function JobDetails() {
+  const { id: jobId } = useParams();
   const [job, setJob] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -52,7 +54,7 @@ function JobDetails({ jobId }) {
       <p>Type: {job.type}</p>
       <p>Posted by: {job.postedBy}</p>
       <p>Posted on: {job.postedOn}</p>
-      {/* Add any additional job details you want to display */}
+      
     </div>
   );
 }

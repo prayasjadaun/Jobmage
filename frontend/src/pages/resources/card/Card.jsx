@@ -37,7 +37,7 @@ const Card = ({ cardData }) => {
     <div className="card-container">
       <Slider className="cards" {...settings}>
         {cardData.map((card) => (
-          <div key={card.id} className="card">
+          <div key={card.id} className="r-card">
             <img src={card.image} alt={card.title} />
             <h3>{card.title}</h3>
             <button

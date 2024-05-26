@@ -7,7 +7,7 @@
   margin-top: 2rem;
 }
 
-.card {
+.r-card {
   width: calc(20% - 20px);
   background-color: white;
   height: auto;
@@ -20,18 +20,18 @@
   cursor: pointer;
 }
 
-.card img {
+.r-card img {
   width: 200px; 
   height: 200px; 
   object-fit: contain; 
   border-radius: 8px;
 }
 
-.card:last-child {
+.r-card:last-child {
   margin-right: 0;
 }
 
-.card h3 {
+.r-card h3 {
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
@@ -76,7 +76,7 @@
     margin-top: 2rem;
   }
   
-  .card img {
+  .r-card img {
     width: 305px; 
     height: 195px; 
     object-fit: contain; 
