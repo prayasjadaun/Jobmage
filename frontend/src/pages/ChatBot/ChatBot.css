@@ -68,7 +68,7 @@
   }
   
   .message.user {
-    background-color: #d3f8d3;
+    background-color: rgb(151, 216, 151);
     align-self: flex-end; 
   }
  

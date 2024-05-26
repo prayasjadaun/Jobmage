@@ -3,7 +3,7 @@ import './ChatBot.css'; // Make sure to create this CSS file
 
 const ChatBot = ({ isOpen, toggleChat }) => {
   const [messages, setMessages] = useState([
-    { text: 'Welcome! How can I help you today?', isBot: true }
+    { text: 'Welcome! i am TechSage a career counselling chatbot by JobMage. How can I help you today?', isBot: true }
   ]);
   const [inputValue, setInputValue] = useState('');
   const messagesEndRef = useRef(null);
@@ -38,8 +38,8 @@ const ChatBot = ({ isOpen, toggleChat }) => {
   return (
     <div className={`chatbot-container ${isOpen ? 'open' : 'closed'}`}>
       <div className="chatbot-header">
-        <h2>ChatBot</h2>
-        <button onClick={toggleChat}>X</button>
+        <h2>Sage</h2>
+        <button onClick={toggleChat}></button>
       </div>
       <div className="chatbot-body">
         {messages.map((message, index) => (

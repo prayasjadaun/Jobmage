@@ -32,8 +32,9 @@
   color: #333;
 }
 
+
 .sidebar-logo {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .sidebar-logo .Link {
@@ -58,6 +59,12 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+.sidebar-user{
+  display: flex;
+  justify-content: center;
+
 }
 
 .section-links {

@@ -8,6 +8,7 @@ import Resources from "./resources/Resources";
 import ChatBot from "./ChatBot/ChatBot";
 import UserProfile from "./profile/UserProfile";
 import AdminPanel from "./adminPanel/AdminPanel"; // Import AdminPanel
+import ChatIcon from "./ChatBot/ChatIcon";
 
 function Afterlogin() {
   const [selectedPage, setSelectedPage] = useState("jobs");
@@ -54,6 +55,7 @@ function Afterlogin() {
     <div className="afterlogin">
       <Sidebar setSelectedPage={setSelectedPage} userData={userData} />
       <div className="page-content">{renderPage()}</div>
+      
     </div>
   );
 }

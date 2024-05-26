@@ -76,6 +76,7 @@ function Jobs() {
           <option value="">All Types</option>
           <option value="Internship">Internship</option>
           <option value="Full-Time">Full-Time</option>
+          <option value="Part-Time">Part-Time</option>
         </select>
       </div>
       {id ? <JobDetails jobId={id} /> : <JobList jobs={filteredJobs} />}{" "}

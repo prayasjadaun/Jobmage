@@ -11,11 +11,13 @@ function PostJobForm() {
     location: '',
     type: '',
     postedBy: '',
-    postedOn: new Date().toISOString().substr(0, 10), // Set initial value to current date
+    postedOn: new Date().toISOString().substr(0, 10),
     description: '',
-    apply: ''
+    apply: '',
+    salary: '',
+    skills: '',
+    applyBy: ''
   });
-  const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
@@ -29,34 +31,31 @@ function PostJobForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validate if all fields are filled
     if (Object.values(job).some(field => !field.trim())) {
       setErrorMessage('All fields are required');
       return;
     }
 
     createJob(job)
-      .then(response => {
-        console.log(response);
-        // Handle success response
-        setSuccessMessage('Successfully posted');
-        // Clear the input fields
+      .then(() => {
+        alert('Successfully posted');
         setJob({
           title: '',
           company: '',
           location: '',
           type: '',
           postedBy: '',
-          postedOn: new Date().toISOString().substr(0, 10), // Update postedOn to current date
+          postedOn: new Date().toISOString().substr(0, 10),
           description: '',
-          apply: ''
+          apply: '',
+          salary: '',
+          skills: '',
+          applyBy: ''
         });
-        // Remove error message if any
         setErrorMessage('');
       })
       .catch(error => {
         console.error('Error:', error);
-        // Handle error response
         setErrorMessage('Error posting job');
       });
   };
@@ -65,16 +64,19 @@ function PostJobForm() {
     <div className="post-job-container">
       <h2>Post a Job</h2>
       {errorMessage && <p className="error">{errorMessage}</p>}
-      {successMessage && <p className="success">{successMessage}</p>}
       <form onSubmit={handleSubmit}>
         <input type="text" name="title" placeholder="Title" value={job.title} onChange={handleChange} required />
         <input type="text" name="company" placeholder="Company" value={job.company} onChange={handleChange} required />
         <input type="text" name="location" placeholder="Location" value={job.location} onChange={handleChange} required />
         <input type="text" name="type" placeholder="Type" value={job.type} onChange={handleChange} required />
         <input type="text" name="postedBy" placeholder="Posted By" value={job.postedBy} onChange={handleChange} required />
-        <input type="date" name="postedOn" placeholder="Posted On" value={job.postedOn} onChange={handleChange} required />
-        <textarea name="description" placeholder="Description" value={job.description} onChange={handleChange} required></textarea>
+        <textarea name="description" placeholder="Job Description" value={job.description} onChange={handleChange} required style={{ resize: 'none' }}></textarea>
         <input type="text" name="apply" placeholder="Apply URL" value={job.apply} onChange={handleChange} required />
+        <input type="text" name="salary" placeholder="Salary" value={job.salary} onChange={handleChange} required />
+        <input type="text" name="skills" placeholder="Skills" value={job.skills} onChange={handleChange} required />
+        <label> Last date to Apply  :</label>
+        <input type="date" name="applyBy" value={job.applyBy} onChange={handleChange} required />
+        <p> Posted On : {job.postedOn}</p>
         <button type="submit">Post Job</button>
       </form>
       <button onClick={() => navigate(-1)}>Back</button>

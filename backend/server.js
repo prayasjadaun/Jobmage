@@ -36,6 +36,10 @@ const Job = mongoose.model('Job', {
   postedOn: String,
   description: String,
   apply: String,
+  applyBy: String,
+  salary: String,
+  skills: String,
+
 });
 
 // Secret key for JWT
@@ -130,8 +134,6 @@ app.get('/api/jobs/:jobId', async (req, res) => {
   }
 });
 
-// Assuming you already have a User model defined
-// Add the following routes to your server
 
 // Get all users
 app.get('/api/users', async (req, res) => {
@@ -180,10 +182,10 @@ app.delete('/api/jobs/:jobId', async (req, res) => {
 // Update job route
 app.patch('/api/jobs/:jobId', async (req, res) => {
   try {
-    const { title, company, location, type, status, postedOn, description, apply } = req.body;
+    const { title, company, location, type, postedBy, description, apply,applyBy, salary, skills } = req.body;
     const updatedJob = await Job.findByIdAndUpdate(
       req.params.jobId,
-      { title, company, location, type, status, postedOn, description, apply },
+      { title, company, location, type, postedBy, description, apply,applyBy, salary, skills },
       { new: true }
     );
     if (!updatedJob) {

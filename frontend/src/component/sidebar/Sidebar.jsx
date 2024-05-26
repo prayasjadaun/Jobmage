@@ -47,7 +47,7 @@ function Sidebar({ setSelectedPage }) {
           </Link>
         </div>
         <div className="sidebar-user">
-          <div className="user-info">Hi, {userData?.username || 'guest'}</div>
+          <div className="user-info"> Hi, {userData?.username || 'guest'}</div>
         </div>
         <div className="sidebar-links">
           <div
