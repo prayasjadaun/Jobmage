@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../../utils/api';
 import './login.css';
+import Loader from '../Loader/loader';
 
 function Login() {
   const [formData, setFormData] = useState({ email: '', password: '', role: 'user' });
@@ -41,7 +42,7 @@ function Login() {
         </div>
         <h2>Login</h2>
         {error && <p className="error-message">{error}</p>}
-        {loading && <p>signing in...</p>}
+        {loading && <Loader/>}
         <form className="login-form" onSubmit={handleSubmit}>
           <label htmlFor="Email">Email</label>
           <input

@@ -7,7 +7,7 @@ import Feeds from "./feeds/Feeds";
 import Resources from "./resources/Resources";
 import ChatBot from "./ChatBot/ChatBot";
 import UserProfile from "./profile/UserProfile";
-import AdminPanel from "./adminPanel/AdminPanel";
+import AdminPanel from "./adminPanel/AdminPanel"; 
 
 function Afterlogin() {
   const [selectedPage, setSelectedPage] = useState("jobs");
@@ -32,29 +32,29 @@ function Afterlogin() {
   }, []);
 
   const renderPage = () => {
-  switch (selectedPage) {
-    case "jobs":
-      return <Jobs />;
-    case "resources":
-      return <Resources />;
-    case "feeds":
-      return <Feeds />;
-    case "chatbot":
-      return <ChatBot />;
-    case "settings":
-      return <UserProfile />;
-    case "admin-panel":
-      return <AdminPanel />;
-    default:
-      return null;
-  }
-};
-
+    switch (selectedPage) {
+      case "jobs":
+        return <Jobs />;
+      case "resources":
+        return <Resources />;
+      case "feeds":
+        return <Feeds />;
+      case "chatbot":
+        return <ChatBot />;
+      case "settings":
+        return <UserProfile />;
+      case "admin": 
+        return <AdminPanel />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="afterlogin">
       <Sidebar setSelectedPage={setSelectedPage} userData={userData} />
       <div className="page-content">{renderPage()}</div>
+      
     </div>
   );
 }

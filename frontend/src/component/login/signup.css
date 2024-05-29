@@ -12,17 +12,15 @@
     justify-self:center;
     align-items: center;
     width: 500px;
-    min-height: 590px;
-    max-height: auto;
-    gap: 1.2rem;
+    max-height: 590px;
+    gap: .2rem;
     border: 1px solid white;
-    box-shadow: 7px 10px 20px rgb(179, 174, 174);
     border-radius: 15px;
 }
 
 
 .signup-logo{
-    font-size: 1rem;
+    font-size: 1.4rem;
     font-weight: 700;
     padding-top: 1.6rem;
 }

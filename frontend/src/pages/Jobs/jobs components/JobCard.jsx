@@ -5,7 +5,7 @@ function JobCard({ job, onJobClick }) {
   };
 
   return (
-    <div className="job-card" onClick={handleClick}>
+    <div className="job-card card" onClick={handleClick}>
       <div className="job-card__header">
         <h2>{job.title}</h2>
         <p>company : {job.company}</p>
@@ -13,7 +13,7 @@ function JobCard({ job, onJobClick }) {
       <div className="job-card__body">
         <p>Location : {job.location}</p>
         <p>Type : {job.type}</p>
-        <p>Status : {job.status}</p>
+        <p>Posted by : {job.postedBy}</p>
         <p>Posted on : {job.postedOn}</p>
       </div>
     </div>

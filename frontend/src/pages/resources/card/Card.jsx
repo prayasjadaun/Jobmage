@@ -1,13 +1,23 @@
-// Card.jsx
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "./card.css";
+import React from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import './card.css';
 
-const Card = ({ cardData }) => {
+const Card = ({ items }) => {
   const handleApplyClick = (link) => {
-    window.open(link, "_blank");
+    const formattedLink = formatLink(link);
+    window.open(formattedLink, "_blank");
+  };
+
+  const formatLink = (link) => {
+    // Check if link starts with http:// or https://
+    if (!/^https?:\/\//i.test(link)) {
+      // If not, add https:// as the default protocol
+      return `https://${link}`;
+    }
+    // Otherwise, return the link as is
+    return link;
   };
 
   const settings = {
@@ -36,13 +46,11 @@ const Card = ({ cardData }) => {
   return (
     <div className="card-container">
       <Slider className="cards" {...settings}>
-        {cardData.map((card) => (
-          <div key={card.id} className="card">
-            <img src={card.image} alt={card.title} />
-            <h3>{card.title}</h3>
-            <button
-              className="button"
-              onClick={() => handleApplyClick(card.apply)} >
+        {items.map(item => (
+          <div key={item._id} className="r-card">
+            <img src={item.image} alt={item.title} />
+            <h3>{item.title}</h3>
+            <button className="button" onClick={() => handleApplyClick(item.apply)}>
               Get
             </button>
           </div>

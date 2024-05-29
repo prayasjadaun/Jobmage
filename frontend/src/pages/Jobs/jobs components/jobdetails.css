@@ -1,15 +1,54 @@
-
 .job-details {
-    border: 1px solid #ccc;
-    padding: 5px;
-    margin: 5px;
-    background-image: linear-gradient(90deg,skyblue, grey);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 96.5vh;
-  }
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
 
-  .detail-button{
-    padding-left: 2rem;
-    display: flex;
-    gap: 2rem;
-  }
+.job-details h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.job-details p {
+  margin-bottom: 5px;
+}
+
+.job-details .description,
+.job-details .skills {
+  margin-top: 10px;
+}
+
+.job-details .apply-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.job-details .apply-button:hover {
+  background-color: #0056b3;
+}
+
+.job-details .back-button {
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.job-details .back-button:hover {
+  background-color: #999;
+}

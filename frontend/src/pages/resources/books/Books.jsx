@@ -1,20 +1,28 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Card from '../card/Card';
 
+const Books = () => {
+  const [books, setBooks] = useState([]);
 
-import image1 from '../../../assets/books/c.jpeg';
-import image2 from '../../../assets/books/C.png';
-import image3 from '../../../assets/books/c++.jpg';
-import image4 from '../../../assets/books/java.png';
-import image5 from '../../../assets/books/python.jpg';
-import image6 from '../../../assets/books/beginer.webp';
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        const response = await axios.get('http://localhost:5001/api/books');
+        setBooks(response.data);
+      } catch (error) {
+        console.error('Error fetching books:', error);
+      }
+    };
+    fetchBooks();
+  }, []);
 
-
-const Books = [
-  { id: 1, title: 'Learn C', image: image1, apply:'https://www.mygreatlearning.com/blog/artificial-intelligence-books/' },
-  { id: 2, title: 'C#', image: image2, apply:'https://www.mygreatlearning.com/blog/artificial-intelligence-books/' },
-  { id: 3, title: 'C++', image: image3, apply:'https://www.mygreatlearning.com/blog/artificial-intelligence-books/' },
-  { id: 4, title: 'Java', image: image4, apply:'https://www.mygreatlearning.com/blog/artificial-intelligence-books/' },
-  { id: 5, title: 'Python', image: image5, apply:'https://www.mygreatlearning.com/blog/artificial-intelligence-books/' },
-  { id: 6, title: 'For Beginners', image: image6, apply:'https://www.mygreatlearning.com/blog/artificial-intelligence-books/' },
-];
+  return (
+    <div className="books">
+      <h2 className='resources-head'>Top Books</h2>
+      <Card items={books} />
+    </div>
+  );
+};
 
 export default Books;

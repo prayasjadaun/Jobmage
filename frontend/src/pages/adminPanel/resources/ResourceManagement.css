@@ -1,0 +1,116 @@
+.resource-management {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+  }
+  
+  .resource-section {
+    margin-bottom: 40px;
+  }
+  
+  .resource-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .resource-item img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+  }
+  
+  .resource-item h4 {
+    flex-grow: 1;
+  }
+  
+  .resource-item p {
+    flex-grow: 1;
+  }
+  
+  .resource-item button {
+    margin-right: 10px;
+  }
+  
+  .delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    background-color: darkred;
+  }
+  
+  .back-button {
+    background-color: rgb(68, 181, 68);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    justify-content: flex-end;
+  }
+  
+  .back-button:hover {
+    background-color: green;
+  }
+  
+  /* Modal styles */
+  .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modal form label {
+    margin-bottom: 10px;
+  }
+  
+  .modal form input {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .modal form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #007BFF;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .modal form button[type="button"] {
+    background: #6c757d;
+  }
+  

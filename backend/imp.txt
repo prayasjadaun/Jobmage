@@ -1,9 +1,0 @@
-HfejPa2HjeFwdBpD
-
-
-mongodb+srv://mebhikhelega:HfejPa2HjeFwdBpD@cluster0.0sftqn0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-
-
-
-mongodb+srv://mebhikhelega:HfejPa2HjeFwdBpD@cluster0.0sftqn0.mongodb.net/
-
